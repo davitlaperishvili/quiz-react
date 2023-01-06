@@ -1,0 +1,11 @@
+@import "../../assets/sass/base/general.scss";
+
+html{
+    background-color: lighten(#3F364E, 10);
+}
+.main_container{
+    width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: radial-gradient(131% 131% at 52.78% -11.25%, #3F364E 44.86%, #A22D4E 85.55%) 
+}
