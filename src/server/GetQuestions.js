@@ -1,8 +1,10 @@
 export default async function GetQuestions(params = {}) {
-    let defineParams;
+    let defineParams = "";
     if (params) {
         Object.entries(params).forEach(([key, value]) => {
-            defineParams += `&${key}=${value}`;
+            if (key !== "categoryName") {
+                defineParams += `&${key}=${value}`;
+            }
         });
     }
     let paramsString = defineParams ? `&${defineParams}` : "";

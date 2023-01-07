@@ -7,18 +7,16 @@ import "./QuizeCategories.scss";
 export default function QuizeCategories() {
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-    function setQuizeState(categoryID, e) {
-        console.log(e);
-
-        const category = { category: categoryID, categoryName: e.target.innerText };
+    async function setQuizeState(categoryID, e) {
         try {
             async function fetchData() {
-                const questions = await GetQuestions(state.quizeParams);
-                console.log(questions);
-                dispatch(changeQuizeParams(category));
-                dispatch(changeQuize(questions));
+                const questions = await GetQuestions({ ...state.quizeParams, category: categoryID });
+                // dispatch(changeQuize(questions));
+                return questions;
             }
-            fetchData();
+            const quiz = await fetchData();
+            const quizParams = { category: categoryID, categoryName: e.target.innerText, quiz };
+            dispatch(changeQuizeParams(quizParams));
         } catch (e) {
             console.log(e);
         }

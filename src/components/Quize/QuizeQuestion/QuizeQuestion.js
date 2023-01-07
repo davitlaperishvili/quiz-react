@@ -4,7 +4,6 @@ import "./quizeAnswer.scss";
 
 export default function QuizeQuestion({ questionInfo }) {
     const { category, question, correct_answer, incorrect_answers } = questionInfo;
-    console.log(incorrect_answers);
     function renderQuestionAnswers() {
         const answers = [...incorrect_answers, correct_answer].sort(() => (Math.random() > 0.5 ? 1 : -1));
         return answers.map((item) => {

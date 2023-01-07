@@ -7,7 +7,7 @@ export default function QuizeQuestionsList() {
     const state = useSelector((state) => state);
     const id = useId();
     function renderQuestions() {
-        return state.quize.results.map((question, index) => {
+        return state.quizeParams.quiz.results.map((question, index) => {
             return <QuizeQuestion key={id + index} questionInfo={question} />;
         });
     }
