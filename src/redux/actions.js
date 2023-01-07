@@ -1,8 +1,22 @@
-import { GET_QUIZE } from "./types";
+import { CHANGE_QUIZE_PARAMS, CHANGE_DIFFICULTY, CHANGE_QUIZE } from "./types";
 
-export function changeQuize() {
+export function changeQuizeParams(category) {
     return {
-        type: GET_QUIZE,
-        payload: null,
+        type: CHANGE_QUIZE_PARAMS,
+        payload: category,
+    };
+}
+
+export function changeDifficulty(difficulty) {
+    return {
+        type: CHANGE_DIFFICULTY,
+        payload: difficulty,
+    };
+}
+
+export function changeQuize(quize) {
+    return {
+        type: CHANGE_QUIZE,
+        payload: quize,
     };
 }

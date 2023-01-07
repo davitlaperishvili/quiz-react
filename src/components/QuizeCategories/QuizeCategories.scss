@@ -1,0 +1,34 @@
+@import "../../assets/sass/base/general.scss";
+
+.quize_categories{
+    color: $cwhite;
+    padding: 30px 20px;
+    .categories_title{
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 30px;
+    }
+    nav{
+        ul{
+            @extend .no-list;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            li{
+                span{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    padding: 10px;
+                    box-shadow: 0 5px 10px rgba($cblack, 0.2);
+                    cursor: pointer;
+                    transition: 0.4s;
+                    &:hover{
+                        box-shadow: 0 5px 10px rgba($cblack,0.6);
+                    }
+                }
+            }
+        }
+    }
+}

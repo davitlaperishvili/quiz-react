@@ -1,1 +1,3 @@
-export const GET_QUIZE = "APP/QUIZE";
+export const CHANGE_QUIZE_PARAMS = "APP/QUIZE_PARAMS";
+export const CHANGE_QUIZE = "APP/QUIZE";
+export const CHANGE_DIFFICULTY = "APP/DIFFICULTY";

@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
 import GetQuestions from "../../server/GetQuestions";
+import QuizeCategories from "../QuizeCategories/QuizeCategories";
+import { useDispatch, useSelector } from "react-redux";
+import { changeQuize } from "../../redux/actions";
 import "./MainContainer.scss";
+import QuizeQuestionsList from "../Quize/QuizeQuestionsList";
 
 export default function MainContainer() {
-    useEffect(() => {
-        async function fetchData() {
-            // You can await here
-            const questions = await GetQuestions();
-            console.log(questions);
-            return;
-            // ...
-        }
-        const questions = fetchData();
-    }, []);
-    return <div className="main_container">Main Container</div>;
+    const state = useSelector((state) => state);
+    return <div className="main_container">{state.quizeParams.category ? <QuizeQuestionsList /> : <QuizeCategories />}</div>;
 }
