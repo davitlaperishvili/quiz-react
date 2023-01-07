@@ -1,1 +1,1 @@
-export const EXAMPLE_TYPE = "APP/TYPES";
+export const GET_QUIZE = "APP/QUIZE";

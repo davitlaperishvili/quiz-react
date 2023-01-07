@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { exampleReducer } from "./exampleReducer";
+import { changeQuizeReducer } from "./changeQuizeReducer";
 export const rootReducer = combineReducers({
-    example: exampleReducer,
+    quize: changeQuizeReducer,
 });

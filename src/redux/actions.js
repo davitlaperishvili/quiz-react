@@ -1,8 +1,8 @@
-import { EXAMPLE_TYPE } from "./types";
+import { GET_QUIZE } from "./types";
 
-export function exampleAction() {
+export function changeQuize() {
     return {
-        type: EXAMPLE_TYPE,
+        type: GET_QUIZE,
         payload: null,
     };
 }
