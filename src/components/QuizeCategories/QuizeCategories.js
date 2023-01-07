@@ -7,8 +7,10 @@ import "./QuizeCategories.scss";
 export default function QuizeCategories() {
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-    function setQuizeState(categoryID) {
-        const category = { category: categoryID };
+    function setQuizeState(categoryID, e) {
+        console.log(e);
+
+        const category = { category: categoryID, categoryName: e.target.innerText };
         try {
             async function fetchData() {
                 const questions = await GetQuestions(state.quizeParams);
@@ -27,76 +29,76 @@ export default function QuizeCategories() {
             <nav>
                 <ul>
                     <li>
-                        <span onClick={() => setQuizeState(9)}>General Knowledge</span>
+                        <span onClick={(e) => setQuizeState(9, e)}>General Knowledge</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(10)}>Books</span>
+                        <span onClick={(e) => setQuizeState(10, e)}>Books</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(11)}>Film</span>
+                        <span onClick={(e) => setQuizeState(11, e)}>Film</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(12)}>Music</span>
+                        <span onClick={(e) => setQuizeState(12, e)}>Music</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(13)}>Musicals & Theatres</span>
+                        <span onClick={(e) => setQuizeState(13, e)}>Musicals & Theatres</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(14)}>Television</span>
+                        <span onClick={(e) => setQuizeState(14, e)}>Television</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(15)}>Video Games</span>
+                        <span onClick={(e) => setQuizeState(15, e)}>Video Games</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(16)}>Board Games</span>
+                        <span onClick={(e) => setQuizeState(16, e)}>Board Games</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(17)}>Science & Nature</span>
+                        <span onClick={(e) => setQuizeState(17, e)}>Science & Nature</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(18)}>Computers</span>
+                        <span onClick={(e) => setQuizeState(18, e)}>Computers</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(19)}>Mathematics</span>
+                        <span onClick={(e) => setQuizeState(19, e)}>Mathematics</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(20)}>Mythology</span>
+                        <span onClick={(e) => setQuizeState(20, e)}>Mythology</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(21)}>Sports</span>
+                        <span onClick={(e) => setQuizeState(21, e)}>Sports</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(22)}>Geography</span>
+                        <span onClick={(e) => setQuizeState(22, e)}>Geography</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(23)}>History</span>
+                        <span onClick={(e) => setQuizeState(23, e)}>History</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(24)}>Politics</span>
+                        <span onClick={(e) => setQuizeState(24, e)}>Politics</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(25)}>Art</span>
+                        <span onClick={(e) => setQuizeState(25, e)}>Art</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(26)}>Celebrities</span>
+                        <span onClick={(e) => setQuizeState(26, e)}>Celebrities</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(27)}>Animals</span>
+                        <span onClick={(e) => setQuizeState(27, e)}>Animals</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(28)}>Vehicles</span>
+                        <span onClick={(e) => setQuizeState(28, e)}>Vehicles</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(29)}>Comics</span>
+                        <span onClick={(e) => setQuizeState(29, e)}>Comics</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(30)}>Gadgets</span>
+                        <span onClick={(e) => setQuizeState(30, e)}>Gadgets</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(31)}>Japanese Anime & Mang</span>
+                        <span onClick={(e) => setQuizeState(31, e)}>Japanese Anime & Mang</span>
                     </li>
                     <li>
-                        <span onClick={() => setQuizeState(32)}>Cartoon & Animations</span>
+                        <span onClick={(e) => setQuizeState(32, e)}>Cartoon & Animations</span>
                     </li>
                 </ul>
             </nav>

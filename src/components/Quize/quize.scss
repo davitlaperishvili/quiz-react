@@ -1,5 +1,21 @@
 @import "../../assets/sass/base/general.scss";
 
+.quize_title{
+    display: flex;
+    flex-direction: column;
+    color: $cwhite;
+    text-align: center;
+    padding-top: 30px;
+    .title{
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+    
+}
 .questions_list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0 50px;
     color: $cwhite;
 }
