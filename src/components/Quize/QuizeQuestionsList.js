@@ -8,14 +8,14 @@ export default function QuizeQuestionsList() {
     const id = useId();
     function renderQuestions() {
         return state.quizeParams.quiz.results.map((question, index) => {
-            return <QuizeQuestion key={id + index} questionInfo={question} />;
+            return <QuizeQuestion key={id + index} id={id + index} positionIndex={index} questionInfo={question} />;
         });
     }
     return (
         <>
             <div className="quize_title">
-                <div className="title">{state.quizeParams.categoryName}</div>
-                <div className="difficulty">Difficulty: {state.quizeParams.difficulty}</div>
+                <div className="title">{state.quizeParams.params.categoryName}</div>
+                <div className="difficulty">Difficulty: {state.quizeParams.params.difficulty}</div>
             </div>
             <div className="questions_list">{renderQuestions()}</div>
         </>

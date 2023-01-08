@@ -1,6 +1,6 @@
 import { CHANGE_QUIZE_PARAMS, CHANGE_DIFFICULTY } from "./types";
 
-const initialState = { difficulty: "easy" };
+const initialState = { params: { difficulty: "easy" } };
 export const changeQuizeParamsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_QUIZE_PARAMS:

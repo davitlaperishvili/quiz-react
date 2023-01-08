@@ -8,5 +8,5 @@ import QuizeQuestionsList from "../Quize/QuizeQuestionsList";
 
 export default function MainContainer() {
     const state = useSelector((state) => state);
-    return <div className="main_container">{state.quizeParams.category ? <QuizeQuestionsList /> : <QuizeCategories />}</div>;
+    return <div className="main_container">{state.quizeParams.params.category ? <QuizeQuestionsList /> : <QuizeCategories />}</div>;
 }

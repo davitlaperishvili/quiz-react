@@ -17,6 +17,15 @@
             &:hover{
                 box-shadow: 0 5px 10px rgba($cblack, 0.8);
             }
+            &.correct{
+                box-shadow: 0 0 10px rgba($csuccess, 0.8);
+            }
+            &.incorrect{
+                box-shadow: 0 0 10px rgba($cdanger, 0.8);
+            }
         }
+    }
+    &.marked{
+        pointer-events: none;
     }
 }

@@ -10,12 +10,12 @@ export default function QuizeCategories() {
     async function setQuizeState(categoryID, e) {
         try {
             async function fetchData() {
-                const questions = await GetQuestions({ ...state.quizeParams, category: categoryID });
+                const questions = await GetQuestions({ ...state.quizeParams.params, category: categoryID });
                 // dispatch(changeQuize(questions));
                 return questions;
             }
             const quiz = await fetchData();
-            const quizParams = { category: categoryID, categoryName: e.target.innerText, quiz };
+            const quizParams = { params: { ...state.quizeParams.params, category: categoryID, categoryName: e.target.innerText }, quiz };
             dispatch(changeQuizeParams(quizParams));
         } catch (e) {
             console.log(e);
