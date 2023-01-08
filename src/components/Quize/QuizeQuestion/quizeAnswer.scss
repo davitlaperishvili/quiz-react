@@ -2,8 +2,14 @@
 .quiz_question{
     padding: 10px;
     box-shadow: 0 5px 10px rgba($cblack, 0.3);
-    .question_text{
+    .question_title{
+        display: flex;
+        align-items: center;
         margin-bottom: 10px;
+        .number{
+            margin-right: 10px;
+            font-size: 20px;
+        }
     }
     .question_answers{
         display: grid;

@@ -33,7 +33,10 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
 
     return (
         <div className={`quiz_question ${marked ? "marked" : ""}`}>
-            <div className="question_text" dangerouslySetInnerHTML={{ __html: question }}></div>
+            <div className="question_title">
+                <div className="number">{positionIndex + 1}.</div>
+                <div className="question_text" dangerouslySetInnerHTML={{ __html: question }}></div>
+            </div>
             <div className="question_answers">{renderQuestionAnswers()}</div>
         </div>
     );

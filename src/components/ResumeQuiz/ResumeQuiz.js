@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeQuizeParams } from "../../redux/actions";
+import "./ResumeQuiz.scss";
 
 export default function ResumeQuiz() {
     const state = useSelector((state) => state);
@@ -8,14 +9,14 @@ export default function ResumeQuiz() {
 
     // dispatch(changeQuizeParams(quizParams));
     const currentQuiz = JSON.parse(localStorage.getItem("currentQuiz"));
-    function renderCurrectQuiz() {
+    function renderCurrentQuiz() {
         dispatch(changeQuizeParams(currentQuiz));
     }
     function renderResumeQuiz() {
         if (currentQuiz) {
             return (
-                <div className="resume_quiz" onClick={renderCurrectQuiz}>
-                    Resume Current Quiz
+                <div className="resume_quiz">
+                    <span onClick={renderCurrentQuiz}>Resume Current Quiz</span>
                 </div>
             );
         }
