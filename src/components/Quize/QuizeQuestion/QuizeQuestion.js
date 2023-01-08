@@ -10,23 +10,23 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
     const { category, question, correct_answer, incorrect_answers, marked } = questionInfo;
 
     function checkCorrectAnswer(e) {
-        const checkAnswer = e.target.dataset.text === correct_answer;
-        const newAnswersArray = [...state.quizeParams.quiz.results];
-        newAnswersArray[positionIndex].marked = e.target.dataset.text;
-        const quizParams = { params: { ...state.quizeParams.params }, quiz: { ...state.quizeParams.quiz, results: [...newAnswersArray] } };
-        localStorage.setItem("currentQuiz", JSON.stringify(quizParams));
-        dispatch(changeQuizeParams(quizParams));
+        const newAnswersArray = [...state.quizeParams.quiz.results]; // duplicate quiz array
+        newAnswersArray[positionIndex].marked = e.target.dataset.text; // mark clicked question as marked and save choosed answer in marked key
+
+        const quizParams = { params: { ...state.quizeParams.params }, quiz: { ...state.quizeParams.quiz, results: [...newAnswersArray] } }; // create new object for redux state
+
+        localStorage.setItem("currentQuiz", JSON.stringify(quizParams)); // save updated state object in localstorage
+        dispatch(changeQuizeParams(quizParams)); // update state
     }
 
     function renderQuestionAnswers() {
-        const answers = [...incorrect_answers, correct_answer];
+        const answers = [...incorrect_answers, correct_answer]; // concat incorrect and correct answers
         // const answers = [...incorrect_answers, correct_answer].sort(() => (Math.random() > 0.5 ? 1 : -1));
 
-        const isMarked = marked ? true : false;
+        const isMarked = marked ? true : false; // check if question is marked
 
         return answers.map((item) => {
-            console.log(item);
-            const markedClass = isMarked && marked === item ? (item === correct_answer ? "correct" : "incorrect") : "";
+            const markedClass = isMarked && marked === item ? (item === correct_answer ? "correct" : "incorrect") : ""; // check if answer is checked then add class based on correct answer
             return <QuestionAnswer marked={markedClass} key={item} text={item} onCheck={(e) => checkCorrectAnswer(e)} />;
         });
     }
