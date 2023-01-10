@@ -10,10 +10,17 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
     const { category, question, correct_answer, incorrect_answers, marked } = questionInfo;
 
     function checkCorrectAnswer(e) {
+        const answerIsCorrect = e.target.dataset.text === correct_answer;
+        let livesCount = state.quizeParams.quiz.lives;
+        console.log("answer is: ", answerIsCorrect);
+        if (!answerIsCorrect) {
+            livesCount -= 1;
+        }
+        console.log(livesCount);
         const newAnswersArray = [...state.quizeParams.quiz.results]; // duplicate quiz array
         newAnswersArray[positionIndex].marked = e.target.dataset.text; // mark clicked question as marked and save choosed answer in marked key
 
-        const quizParams = { params: { ...state.quizeParams.params }, quiz: { ...state.quizeParams.quiz, results: [...newAnswersArray] } }; // create new object for redux state
+        const quizParams = { params: { ...state.quizeParams.params }, quiz: { ...state.quizeParams.quiz, results: [...newAnswersArray], lives: livesCount } }; // create new object for redux state
 
         localStorage.setItem("currentQuiz", JSON.stringify(quizParams)); // save updated state object in localstorage
         dispatch(changeQuizeParams(quizParams)); // update state

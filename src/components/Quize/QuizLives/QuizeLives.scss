@@ -1,0 +1,14 @@
+@import "../../../assets/sass/base/general.scss";
+.lives_wrap{
+    margin: 20px 0 0;
+    .lives_list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .live_item{
+            color: $cdanger;
+            font-size: 20px;
+        }
+    }
+}

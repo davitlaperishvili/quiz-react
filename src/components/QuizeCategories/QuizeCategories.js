@@ -16,7 +16,7 @@ export default function QuizeCategories() {
                 return questions;
             }
             const quiz = await fetchData();
-            const quizParams = { params: { ...state.quizeParams.params, category: categoryID, categoryName: e.target.innerText }, quiz };
+            const quizParams = { params: { ...state.quizeParams.params, category: categoryID, categoryName: e.target.innerText }, quiz: { ...quiz, lives: 3 } };
             dispatch(changeQuizeParams(quizParams));
         } catch (e) {
             console.log(e);

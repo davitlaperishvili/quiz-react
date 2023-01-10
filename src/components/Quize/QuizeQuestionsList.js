@@ -2,6 +2,7 @@ import React, { useId } from "react";
 import { useSelector } from "react-redux";
 import "./quize.scss";
 import QuizeQuestion from "./QuizeQuestion/QuizeQuestion";
+import QuizLivesList from "./QuizLives/QuizLivesList";
 
 export default function QuizeQuestionsList() {
     const state = useSelector((state) => state);
@@ -17,6 +18,7 @@ export default function QuizeQuestionsList() {
                 <div className="title">{state.quizeParams.params.categoryName}</div>
                 <div className="difficulty">Difficulty: {state.quizeParams.params.difficulty}</div>
             </div>
+            <QuizLivesList />
             <div className="questions_list">{renderQuestions()}</div>
         </>
     );
