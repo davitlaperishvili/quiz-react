@@ -10,7 +10,17 @@
         margin-bottom: 10px;
         font-size: 30px;
     }
-    
+    .go_back{
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover{
+            text-shadow: 0 0 20px rgba($csuccess, 1);
+        }
+    }
 }
 .questions_list{
     display: flex;

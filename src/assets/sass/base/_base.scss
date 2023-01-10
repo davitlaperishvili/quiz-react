@@ -148,6 +148,20 @@ div.container{
 		cursor: pointer;
 		&:hover{
 			background-color: $ccorp;
+			color: $cwhite;
+		}
+	}
+	&.center{
+		display: flex;
+		justify-content: center;
+	}
+	&.space_below{
+		padding-bottom: 50px;
+	}
+	&.disabled{
+		a,button{
+			pointer-events: none;
+			opacity: 0.5;
 		}
 	}
 }
