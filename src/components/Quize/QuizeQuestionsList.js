@@ -28,7 +28,6 @@ export default function QuizeQuestionsList() {
                 <div className="go_back" onClick={goBack}>
                     Go Back
                 </div>
-                <FinishQuiz status="success" text="You Failed" />
             </div>
             <QuizLivesList />
             <div className="questions_list">{renderQuestions()}</div>
