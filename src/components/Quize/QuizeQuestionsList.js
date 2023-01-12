@@ -25,7 +25,11 @@ export default function QuizeQuestionsList() {
   }
   function goBack() {
     // go back to initial state and category listing
-    dispatch(changeQuizeParams({ params: { difficulty: "easy" } }));
+    dispatch(
+      changeQuizeParams({
+        params: { difficulty: "easy" },
+      })
+    );
     // dispatch(changeQuize({ finished: false }));
   }
   return (

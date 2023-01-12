@@ -20,16 +20,21 @@ const customStyles = {
 function App() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+  const quisIsFinished = localStorage.getItem("quiz")
+    ? JSON.parse(localStorage.getItem("quiz")).finished
+    : false;
+
   useEffect(() => {
     if (quizIsFinished(state).isFinished) {
       console.log(quizIsFinished(state).isFinished);
-      dispatch(changeQuize({ finished: true, modalIsOpen: true })); // update state
+      dispatch(changeQuize({ finished: quisIsFinished, modalIsOpen: true })); // update state
     }
   }, [state.quizeParams.quiz]);
   function goBack() {
     // go back to initial state and category listing
     dispatch(changeQuize({ modalIsOpen: false }));
     // localStorage.removeItem("currentQuiz");
+    localStorage.setItem("quiz", JSON.stringify({ finished: true })); // save updated state object in localstorage
   }
 
   function renderFinishModal() {

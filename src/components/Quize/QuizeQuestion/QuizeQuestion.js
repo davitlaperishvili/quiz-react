@@ -37,6 +37,7 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
     }; // create new object for redux state
 
     localStorage.setItem("currentQuiz", JSON.stringify(quizParams)); // save updated state object in localstorage
+    localStorage.setItem("quiz", JSON.stringify({ finished: false })); // save updated state object in localstorage
     dispatch(changeQuizeParams(quizParams)); // update state
   }
 

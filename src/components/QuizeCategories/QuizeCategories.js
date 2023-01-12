@@ -28,7 +28,7 @@ export default function QuizeCategories() {
         quiz: { ...quiz, lives: 3 },
       };
       dispatch(changeQuizeParams(quizParams));
-      dispatch(changeQuize({ modalIsOpen: false, finished: false }));
+      dispatch(changeQuize({ modalIsOpen: false }));
     } catch (e) {
       console.log(e);
     }
