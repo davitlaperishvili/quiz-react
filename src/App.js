@@ -4,45 +4,69 @@ import MainContainer from "./components/MainContainer/MainContainer";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import FinishQuiz from "./components/Quize/FinishQuiz/FinishQuiz";
-import { changeQuizeParams } from "./redux/actions";
+import { changeQuizeParams, changeQuize } from "./redux/actions";
+import { quizIsFinished } from "./components/Quize/FinishQuiz/FinishQuiz";
+import { useEffect } from "react";
 const customStyles = {
-    content: {
-        top: "50%",
-        left: "50%",
-        right: "auto",
-        bottom: "auto",
-        marginRight: "-50%",
-        transform: "translate(-50%, -50%)",
-    },
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
 };
 function App() {
-    const dispatch = useDispatch();
-    let state = useSelector((state) => {
-        return state;
-    });
-    function goBack() {
-        // go back to initial state and category listing
-        dispatch(changeQuizeParams({ params: { difficulty: "easy" } }));
-        localStorage.removeItem("currentQuiz");
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  useEffect(() => {
+    if (quizIsFinished(state).isFinished) {
+      console.log(quizIsFinished(state).isFinished);
+      dispatch(changeQuize({ finished: true, modalIsOpen: true })); // update state
     }
-    Modal.setAppElement("#root");
-    return (
-        <>
-            <ToastContainer autoClose={1000} />
-            <div className="App">
-                <MainContainer />
-                <Modal
-                    isOpen={state.quizeParams.quiz && state.quizeParams.params.category && state.quizeParams.quiz.lives <= 0}
-                    //onAfterOpen={afterOpenModal}
-                    style={customStyles}
-                    onRequestClose={goBack}
-                    contentLabel="Example Modal"
-                >
-                    <FinishQuiz status="success" text="You Failed" />
-                </Modal>
-            </div>
-        </>
-    );
+  }, [state.quizeParams]);
+  function goBack() {
+    // go back to initial state and category listing
+    dispatch(changeQuize({ modalIsOpen: false }));
+    // localStorage.removeItem("currentQuiz");
+  }
+
+  function renderFinishModal() {
+    if (quizIsFinished(state).isFailed) {
+      return (
+        <FinishQuiz
+          status="failed"
+          text="You Failed"
+        />
+      );
+    } else {
+      return (
+        <FinishQuiz
+          status="success"
+          text="You Pass"
+        />
+      );
+    }
+  }
+  Modal.setAppElement("#root");
+  return (
+    <>
+      <ToastContainer autoClose={1000} />
+      <div className="App">
+        <MainContainer />
+        <Modal
+          isOpen={state.quize.modalIsOpen}
+          //onAfterOpen={afterOpenModal}
+          style={customStyles}
+          onRequestClose={goBack}
+          contentLabel="Example Modal"
+        >
+          {renderFinishModal()}
+        </Modal>
+      </div>
+    </>
+  );
 }
 
 export default App;
