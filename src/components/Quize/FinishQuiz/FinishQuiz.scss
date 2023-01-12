@@ -1,0 +1,29 @@
+@import "../../../assets/sass/base/general.scss";
+
+.ReactModal__Content{
+    padding: 0 !important;
+}
+.finish_quiz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    h2{
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+    .text{
+        font-size: 20px;
+    }
+    &.failed{
+        color: $cdanger;
+        background: radial-gradient(131% 131% at 52.78% -11.25%, #3F364E 44.86%, #3e111e 85.55%);
+    }
+    &.success{
+        background: radial-gradient(131% 131% at 52.78% -11.25%, #3F364E 44.86%, #3e111e 85.55%);
+        color: $csuccess;
+    }
+}

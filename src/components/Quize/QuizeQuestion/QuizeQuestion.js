@@ -16,6 +16,13 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
     let livesCount = state.quizeParams.quiz.lives;
     if (!answerIsCorrect) {
       livesCount -= 1;
+      const parent = e.target.closest(".question_answers");
+      const allAnswers = parent.querySelectorAll(".question_answer");
+      allAnswers.forEach((answer) => {
+        if (answer.innerText === correct_answer) {
+          answer.classList.add("correct");
+        }
+      });
     }
     const newAnswersArray = [...state.quizeParams.quiz.results]; // duplicate quiz array
     newAnswersArray[positionIndex].marked = e.target.dataset.text; // mark clicked question as marked and save choosed answer in marked key
@@ -40,15 +47,17 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
     const isMarked = marked ? true : false; // check if question is marked
 
     return answers.map((item) => {
-      const markedClass =
-        isMarked && marked === item
-          ? item === correct_answer
-            ? "correct"
-            : "incorrect"
-          : ""; // check if answer is checked then add class based on correct answer
+      let markedClass = "";
+      // check if answer is checked then add class based on correct answer
+      if (isMarked && marked === item) {
+        markedClass = item === correct_answer ? "correct" : "incorrect";
+      } else {
+        markedClass = "";
+      }
       return (
         <QuestionAnswer
           marked={markedClass}
+          index={positionIndex}
           key={item}
           text={item}
           onCheck={(e) => checkCorrectAnswer(e)}
