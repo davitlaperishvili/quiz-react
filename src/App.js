@@ -25,7 +25,7 @@ function App() {
       console.log(quizIsFinished(state).isFinished);
       dispatch(changeQuize({ finished: true, modalIsOpen: true })); // update state
     }
-  }, [state.quizeParams]);
+  }, [state.quizeParams.quiz]);
   function goBack() {
     // go back to initial state and category listing
     dispatch(changeQuize({ modalIsOpen: false }));

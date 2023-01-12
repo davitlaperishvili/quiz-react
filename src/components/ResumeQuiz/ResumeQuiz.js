@@ -5,7 +5,7 @@ import { quizIsFinished } from "../Quize/FinishQuiz/FinishQuiz";
 import "./ResumeQuiz.scss";
 
 export default function ResumeQuiz() {
-  const state = useSelector((state) => state);
+  const quizFinished = useSelector((state) => state.quize.finished);
   const dispatch = useDispatch();
 
   // dispatch(changeQuizeParams(quizParams));
@@ -17,7 +17,9 @@ export default function ResumeQuiz() {
     if (currentQuiz) {
       return (
         <div className="resume_quiz">
-          <span onClick={renderCurrentQuiz}>Resume Current Quiz</span>
+          <span onClick={renderCurrentQuiz}>
+            {quizFinished ? "Review Previous Quiz" : "Resume Current Quiz"}
+          </span>
         </div>
       );
     }
