@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/quiz-react/static/css/main.bfd40307.css",
-    "main.js": "/quiz-react/static/js/main.a4f89379.js",
+    "main.css": "/quiz-react/static/css/main.d1c1ac43.css",
+    "main.js": "/quiz-react/static/js/main.992af308.js",
     "static/media/Roboto-Medium.ttf": "/quiz-react/static/media/Roboto-Medium.7429a63c09f79a1760b0.ttf",
     "static/media/Roboto-Regular.ttf": "/quiz-react/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
     "static/media/Roboto-Bold.ttf": "/quiz-react/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
     "static/media/remixicon.woff2": "/quiz-react/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
     "index.html": "/quiz-react/index.html",
-    "main.bfd40307.css.map": "/quiz-react/static/css/main.bfd40307.css.map",
-    "main.a4f89379.js.map": "/quiz-react/static/js/main.a4f89379.js.map"
+    "main.d1c1ac43.css.map": "/quiz-react/static/css/main.d1c1ac43.css.map",
+    "main.992af308.js.map": "/quiz-react/static/js/main.992af308.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfd40307.css",
-    "static/js/main.a4f89379.js"
+    "static/css/main.d1c1ac43.css",
+    "static/js/main.992af308.js"
   ]
 }
