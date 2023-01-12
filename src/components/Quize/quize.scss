@@ -28,4 +28,8 @@
     gap: 20px;
     padding: 30px 0 50px;
     color: $cwhite;
+    &.disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
 }
