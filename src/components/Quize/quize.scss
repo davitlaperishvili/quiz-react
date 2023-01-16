@@ -6,6 +6,9 @@
     color: $cwhite;
     text-align: center;
     padding-top: 30px;
+    @media(max-width: 1024px){
+        padding-top: 50px;
+    }
     .title{
         margin-bottom: 10px;
         font-size: 30px;
@@ -17,6 +20,9 @@
         transform: translateY(-50%);
         cursor: pointer;
         transition: 0.4s;
+        @media(max-width: 1024px){
+            top: 30px;
+        }
         &:hover{
             text-shadow: 0 0 20px rgba($csuccess, 1);
         }
@@ -28,6 +34,9 @@
     gap: 20px;
     padding: 30px 0 50px;
     color: $cwhite;
+    @media(max-width: 1024px){
+        padding: 0 10px;
+    }
     &.disabled{
         // opacity: 0.5;
         pointer-events: none;

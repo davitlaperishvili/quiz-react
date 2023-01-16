@@ -5,8 +5,18 @@
     margin: 0 auto;
     .select_difficulity {
         .difficulity__control{
+            background-color: lighten($ccorp, 10);
+            box-shadow: none;
+            .difficulity__value-container{
+                .difficulity__single-value{
+                    color: $cwhite;
+                }
+            }
             .difficulity__input{
                 height: unset;
+            }
+            &.difficulity__control--is-focused{
+                border-color: $cwhite;
             }
         }
         .difficulity__menu{

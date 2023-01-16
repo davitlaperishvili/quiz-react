@@ -20,13 +20,28 @@ export default function QuizeCategories() {
         return questions;
       }
       const quiz = await fetchData();
+      const quizDuplicate = JSON.parse(JSON.stringify(quiz));
+      const quizWithRandomAnswerPositions = quizDuplicate.results.map(
+        (item) => {
+          item.allAnswers = [
+            ...item.incorrect_answers,
+            item.correct_answer,
+          ].sort(() => (Math.random() > 0.5 ? 1 : -1));
+          return item;
+        }
+      );
+
+      const finalQuiz = {
+        ...quizDuplicate,
+        results: quizWithRandomAnswerPositions,
+      };
       const quizParams = {
         params: {
           ...state.quizeParams.params,
           category: categoryID,
           categoryName: e.target.innerText,
         },
-        quiz: { ...quiz, lives: 3 },
+        quiz: { ...finalQuiz, lives: 3 },
       };
       dispatch(changeQuizeParams(quizParams));
       dispatch(changeQuize({ modalIsOpen: false, finished: false }));

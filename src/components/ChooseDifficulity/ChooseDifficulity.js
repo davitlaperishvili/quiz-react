@@ -11,9 +11,6 @@ const options = [
 export default function ChooseDifficulity() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(state);
-  });
   function handleClick(e) {
     const quizParams = {
       params: {
@@ -25,14 +22,6 @@ export default function ChooseDifficulity() {
   }
   return (
     <div className="choose_difficulity">
-      {/* <select
-        name="difficulity"
-        id=""
-      >
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select> */}
       <Select
         defaultValue={[options[0]]}
         name="difficulity"

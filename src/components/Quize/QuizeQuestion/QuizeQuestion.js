@@ -8,8 +8,14 @@ import "./quizeAnswer.scss";
 export default function QuizeQuestion({ questionInfo, positionIndex }) {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { category, question, correct_answer, incorrect_answers, marked } =
-    questionInfo;
+  const {
+    category,
+    question,
+    correct_answer,
+    incorrect_answers,
+    marked,
+    allAnswers,
+  } = questionInfo;
 
   function checkCorrectAnswer(e) {
     const answerIsCorrect = e.target.dataset.text === correct_answer;
@@ -42,12 +48,12 @@ export default function QuizeQuestion({ questionInfo, positionIndex }) {
   }
 
   function renderQuestionAnswers() {
-    const answers = [...incorrect_answers, correct_answer]; // concat incorrect and correct answers
+    // const answers = [...incorrect_answers, correct_answer]; // concat incorrect and correct answers
     // const answers = [...incorrect_answers, correct_answer].sort(() => (Math.random() > 0.5 ? 1 : -1));
 
     const isMarked = marked ? true : false; // check if question is marked
 
-    return answers.map((item) => {
+    return allAnswers.map((item) => {
       let markedClass = "";
       // check if answer is checked then add class based on correct answer
       if (isMarked && marked === item) {

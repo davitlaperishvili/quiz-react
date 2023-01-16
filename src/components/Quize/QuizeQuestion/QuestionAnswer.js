@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 export default function QuestionAnswer({ text, onCheck, marked, index }) {
   const state = useSelector((state) => state);
-  console.log(state.quizeParams.quiz.results[index]);
   return (
     <div
       className={`question_answer ${marked} ${

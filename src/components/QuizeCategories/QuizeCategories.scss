@@ -9,6 +9,7 @@
         font-size: 30px;
     }
     nav{
+        margin-top: 20px;
         ul{
             @extend .no-list;
             display: flex;

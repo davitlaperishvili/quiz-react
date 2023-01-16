@@ -4,8 +4,12 @@ html{
     background-color: lighten(#3F364E, 10);
 }
 .main_container{
-    width: 600px;
+    max-width: 800px;
+    width: 100%;
     min-height: 100vh;
     margin: 0 auto;
-    background: radial-gradient(131% 131% at 52.78% -11.25%, #3F364E 44.86%, #3e111e 85.55%) 
+    background: radial-gradient(131% 131% at 52.78% -11.25%, #3F364E 44.86%, #3e111e 85.55%) ;
+    @media(max-width: 1024px){
+        width: 100%;
+    }
 }
