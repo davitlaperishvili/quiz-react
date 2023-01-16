@@ -1,0 +1,29 @@
+@import "../../assets/sass/base/general.scss";
+
+.choose_difficulity{
+    max-width: 50%;
+    margin: 0 auto;
+    .select_difficulity {
+        .difficulity__control{
+            .difficulity__input{
+                height: unset;
+            }
+        }
+        .difficulity__menu{
+            .difficulity__menu-list{
+                .difficulity__option{
+                    color: $cbase;
+                    cursor: pointer;
+                    &.difficulity__option--is-focused{
+                        background-color: lighten($ccorp, 10);
+                        color: $cwhite;
+                    }
+                    &.difficulity__option--is-selected{
+                        color: $cwhite;
+                        background-color: $ccorp;
+                    }
+                }
+            }
+        }
+    }
+}

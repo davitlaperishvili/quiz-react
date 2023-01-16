@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeQuize, changeQuizeParams } from "../../redux/actions";
 import GetQuestions from "../../server/GetQuestions";
+import ChooseDifficulity from "../ChooseDifficulity/ChooseDifficulity";
 import ResumeQuiz from "../ResumeQuiz/ResumeQuiz";
 import "./QuizeCategories.scss";
 
@@ -36,6 +37,7 @@ export default function QuizeCategories() {
   return (
     <div className="quize_categories">
       <div className="categories_title">Take A Quize</div>
+      <ChooseDifficulity />
       <ResumeQuiz />
       <nav>
         <ul>
